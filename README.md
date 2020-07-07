@@ -1,4 +1,5 @@
 # Diagnostic Log and Trace
+[![Build Status](https://dev.azure.com/github0805/MyFirstProject/_apis/build/status/aachtzehn.dlt-daemon?branchName=master)](https://dev.azure.com/github0805/MyFirstProject/_build/latest?definitionId=4&branchName=master)
 
 Build and Test status: [![build and test status](https://travis-ci.org/GENIVI/dlt-daemon.svg?branch=master)](https://travis-ci.org/GENIVI/dlt-daemon)
 Alerts: [![Total alerts](https://img.shields.io/lgtm/alerts/g/GENIVI/dlt-daemon.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/GENIVI/dlt-daemon/alerts/)
