@@ -49,4 +49,5 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/test*.xml'
+    mergeTestResults: true
     testRunTitle: 'dlt-daemon tests'
