@@ -18,11 +18,11 @@ steps:
     cmakeArgs: --build .   
 - task: CmdLine@2
   inputs:
-    script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_daemon_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/bin/test.xml
+    script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_daemon_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test.xml
 -  task: CmdLine@2
   inputs:
-    script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/bin/test2.xml
--  task: PublishTestResults@2
+    script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test2.xml
+- task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/test*.xml'
