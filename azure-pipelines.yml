@@ -18,7 +18,12 @@ steps:
     cmakeArgs: --build .   
 - task: CmdLine@2
   inputs:
-    script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_daemon_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test.xml
+    script: gtest_dlt_daemon_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test.xml
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: $(Build.Repository.LocalPath)/tests
+    Contents: 'testfilter.txt'
+    TargetFolder: $(Build.Repository.LocalPath)/build/tests/
 - task: CmdLine@2
   inputs:
     script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test2.xml
