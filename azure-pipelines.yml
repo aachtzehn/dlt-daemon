@@ -61,6 +61,7 @@ steps:
   inputs:
     script: $(Build.Repository.LocalPath)/build/tests/dlt_env_ll_unit_test --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test7.xml
 - task: PublishTestResults@2
+  displayName: Publishing test results.
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/test*.xml'
