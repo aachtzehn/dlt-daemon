@@ -22,21 +22,27 @@ steps:
     Contents: 'test*'
     TargetFolder: $(Build.Repository.LocalPath)/  
 - task: CmdLine@2
+  continueOnError: true 
   inputs:
     script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_daemon_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test.xml
 - task: CmdLine@2
+  continueOnError: true
   inputs:
     script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test2.xml
 - task: CmdLine@2
+  continueOnError: true
   inputs:
     script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_daemon_event_handler --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test3.xml
 - task: CmdLine@2
+  continueOnError: true
   inputs:
     script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_daemon_offline_log --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test5.xml
 - task: CmdLine@2
+  continueOnError: true
   inputs:
     script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_user --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test6.xml
 - task: CmdLine@2
+  continueOnError: true
   inputs:
     script: $(Build.Repository.LocalPath)/build/tests/dlt_env_ll_unit_test --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test7.xml
 - task: PublishTestResults@2
