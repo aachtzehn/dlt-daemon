@@ -19,10 +19,10 @@ steps:
 - task: CmdLine@2
   inputs:
     script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_daemon_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/bin/test.xml
-  task: CmdLine@2
+-  task: CmdLine@2
   inputs:
     script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/bin/test2.xml
-  task: PublishTestResults@2
+-  task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/test*.xml'
