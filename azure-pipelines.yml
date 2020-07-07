@@ -67,3 +67,14 @@ steps:
     testResultsFiles: '**/test*.xml'
     mergeTestResults: true
     testRunTitle: 'dlt-daemon tests'
+- task: GitHubRelease@1
+  inputs:
+    repositoryName: '$(Build.Repository.Name)'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'gitTag'
+    assets: '$(Build.Repository.LocalPath)/build/*'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
+    gitHubConnection: aachtzehn
+
