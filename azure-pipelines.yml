@@ -32,9 +32,6 @@ steps:
     script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_daemon_event_handler --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test3.xml
 - task: CmdLine@2
   inputs:
-    script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_daemon_gateway --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test4.xml
-- task: CmdLine@2
-  inputs:
     script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_daemon_offline_log --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test5.xml
 - task: CmdLine@2
   inputs:
