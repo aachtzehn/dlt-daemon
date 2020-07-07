@@ -77,8 +77,21 @@ steps:
     tag: $(Build.BuildNumber)
     title: 'My release: $(Build.BuildNumber)'
     assets: |
-      $(Build.Repository.LocalPath)/build/
       $(Build.Repository.LocalPath)/build/src/console/dlt-*
       $(Build.Repository.LocalPath)/build/src/daemon/dlt-*
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
+- task: ArtifactoryGenericUpload@2
+  inputs:
+    artifactoryService: 'artifactory'
+    specSource: 'taskConfiguration'
+    fileSpec: |
+      {
+        "files": [
+          {
+            "pattern": "$(Build.Repository.LocalPath)/build/",
+            "target": "/"
+          }
+        ]
+      }
+    failNoOp: true
