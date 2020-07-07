@@ -12,15 +12,18 @@ pool:
 steps:
 - task: CMake@1
   inputs:
-    cmakeArgs: ..
+    cmakeArgs: -DWITH_DLT_UNIT_TESTS=ON ..
 - task: CMake@1
   inputs:
     cmakeArgs: --build .   
 - task: CmdLine@2
   inputs:
-    script: $(Build.Repository.LocalPath)/build/bin/unit_tests --gtest_output=xml:$(Build.Repository.LocalPath)/build/bin/test.xml
-- task: PublishTestResults@2
+    script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_daemon_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/bin/test.xml
+  task: CmdLine@2
+  inputs:
+    script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/bin/test2.xml
+  task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/test.xml'
+    testResultsFiles: '**/test*.xml'
     testRunTitle: 'My example test results'
