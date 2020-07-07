@@ -76,5 +76,5 @@ steps:
     assets: '$(Build.Repository.LocalPath)/build/*'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
-    gitHubConnection: aachtzehn
+    gitHubConnection: github.com_aachtzehn
 
