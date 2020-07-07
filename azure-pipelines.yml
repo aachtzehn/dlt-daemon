@@ -19,7 +19,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     SourceFolder: $(Build.Repository.LocalPath)/tests
-    Contents: 'testfilter*'
+    Contents: 'test*'
     TargetFolder: $(Build.Repository.LocalPath)/  
 - task: CmdLine@2
   inputs:
