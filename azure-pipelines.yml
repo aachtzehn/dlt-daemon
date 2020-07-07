@@ -82,6 +82,7 @@ steps:
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
 - task: ArtifactoryGenericUpload@2
+  enabled: false
   inputs:
     artifactoryService: 'artifactory'
     specSource: 'taskConfiguration'
