@@ -15,15 +15,15 @@ steps:
     cmakeArgs: -DWITH_DLT_UNIT_TESTS=ON ..
 - task: CMake@1
   inputs:
-    cmakeArgs: --build .   
-- task: CmdLine@2
-  inputs:
-    script: gtest_dlt_daemon_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test.xml
+    cmakeArgs: --build . 
 - task: CopyFiles@2
   inputs:
     SourceFolder: $(Build.Repository.LocalPath)/tests
-    Contents: 'testfilter.txt'
-    TargetFolder: $(Build.Repository.LocalPath)/build/tests/
+    Contents: 'testfilter*'
+    TargetFolder: $(Build.Repository.LocalPath)/  
+- task: CmdLine@2
+  inputs:
+    script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_daemon_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test.xml
 - task: CmdLine@2
   inputs:
     script: $(Build.Repository.LocalPath)/build/tests/gtest_dlt_common --gtest_output=xml:$(Build.Repository.LocalPath)/build/tests/test2.xml
