@@ -69,12 +69,13 @@ steps:
     testRunTitle: 'dlt-daemon tests'
 - task: GitHubRelease@1
   inputs:
+    gitHubConnection: 'github.com_aachtzehn'
     repositoryName: '$(Build.Repository.Name)'
     action: 'create'
     target: '$(Build.SourceVersion)'
-    tagSource: 'gitTag'
+    tagSource: 'userSpecifiedTag'
+    tag: $(Build.BuildNumber)
+    title: 'My release: $(Build.BuildNumber)'
     assets: '$(Build.Repository.LocalPath)/build/*'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
-    gitHubConnection: github.com_aachtzehn
-
